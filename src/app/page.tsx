@@ -1,6 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import NotFound from "./not-found";
 
 export default function Home() {
+  NotFound();
   return <h1>Hompage</h1>;
 }
