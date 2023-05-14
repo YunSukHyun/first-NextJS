@@ -1,3 +1,4 @@
+import { getProduct, getProducts } from "@/service/products";
 import ProductNotFound from "../not-found";
 
 type Props = {
@@ -5,15 +6,22 @@ type Props = {
     slug: string;
   };
 };
-const Pants = ({ params }: Props) => {
-  if (params.slug === "nothing") {
+
+export function generateMetaData({ params }: Props) {
+  return {
+    title: `제품의 이름: ${params.slug}`,
+  };
+}
+const Pants = ({ params: { slug } }: Props) => {
+  const product = getProduct(slug);
+  if (!product) {
     ProductNotFound();
   }
-  return <div>{params.slug} product text</div>;
+  return <div>{slug} product text</div>;
 };
 
 export function generateStaticParams() {
-  const products = ["params", "skirt"];
+  const products = getProducts();
   return products.map((product) => ({
     slug: product,
   }));
