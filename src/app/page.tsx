@@ -1,6 +1,12 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-
+import Counter from "@/components/counter";
+import NotFound from "./not-found";
+import os from "os";
 export default function Home() {
-  return <h1>Hompage</h1>;
+  console.log(os.hostname());
+  return (
+    <>
+      <h1>Hompage</h1>
+      <Counter />
+    </>
+  );
 }
