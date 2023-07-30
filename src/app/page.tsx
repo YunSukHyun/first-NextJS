@@ -1,6 +1,6 @@
-import Counter from "@/components/Counter";
 import os from "os";
 import Image from "next/image";
+import Counter from "@/components/Counter";
 export default function Home() {
   console.log(os.hostname());
   return (
