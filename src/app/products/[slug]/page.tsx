@@ -1,5 +1,8 @@
 import { getProduct, getProducts } from "@/service/products";
 import ProductNotFound from "../not-found";
+import Image from "next/image";
+import { redirect } from "next/navigation";
+import GoProductsButton from "@/components/GoProductsButton";
 
 export const revalidate = 3;
 
@@ -17,10 +20,23 @@ export function generateMetaData({ params }: Props) {
 const Produts = async ({ params: { slug } }: Props) => {
   const product = await getProduct(slug);
   if (!product) {
-    ProductNotFound();
+    redirect("/products");
+    // ProductNotFound();
+    return;
   }
   // 서버 파일에 있는 데이터 중 해당 제품의 정보를 찾아서 그것을 보여줌
-  return <h1>{product?.name} product text</h1>;
+  return (
+    <>
+      <h1>{product?.name} product text</h1>
+      <Image
+        src={`/images/${product?.image}`}
+        alt={product.name}
+        width={300}
+        height={400}
+      />
+      <GoProductsButton />
+    </>
+  );
 };
 
 export async function generateStaticParams() {

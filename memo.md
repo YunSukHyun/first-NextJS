@@ -27,3 +27,11 @@
 ### Nextjs로 풀스택 웹앱을 만들 수 있는 것은 Routing handler가 있기 때문
 
 ### loading.tsx는 내부적으로 React Suspense를 사용한다.
+
+### image를 넣을 때는 nextjs에서 제공해주는 Image 태그를 사용하고 로컬이 아닌 주소로 이미지를 src로 할 때는 width와 heigt를 명시하고 next.config에 등록해줘야한다.
+
+### redirect 시킬 때에도 next.config.js에 async redirects() 함수를 만들고 배열을 반환하는 식으로 등록한다.
+
+### rewrite를 이용하면 프로젝트 구조와 다르게 URL을 덮어씌울 수 있다. 프로젝트 구조를 노출 시키지 않는 효과
+
+### middleware를 특정 경로에 대해서만 실행시키려면 middleware.tsx에서 config를 export해주어야 한다. matcher에 배열형태로

@@ -1,4 +1,4 @@
-import Counter from "@/components/counter";
+import Counter from "@/components/Counter";
 import os from "os";
 import Image from "next/image";
 export default function Home() {
